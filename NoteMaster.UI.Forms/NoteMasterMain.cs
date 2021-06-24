@@ -22,7 +22,9 @@
         public NoteMasterMain()
         {
             InitializeComponent();
+            scintilla.Margins[0].Width = 16;
             LoadForm();
+            EditMode = false;
         }
 
         public string SelectedNoteId => $"{listBoxCategories.SelectedItem}{listBoxTags.SelectedItem}";
@@ -50,7 +52,7 @@
         {
             listBoxCategories.Enabled = false;
             listBoxTags.Enabled = false;
-            richTextBoxNoteOutput.Enabled = true;
+            scintilla.Enabled = true;
             buttonDeleteNote.Enabled = false;
         }
 
@@ -58,7 +60,7 @@
         {
             listBoxCategories.Enabled = true;
             listBoxTags.Enabled = true;
-            richTextBoxNoteOutput.Enabled = false;
+            scintilla.Enabled = false;
             buttonDeleteNote.Enabled = true;
         }
 
@@ -78,7 +80,7 @@
         private void PopulateNoteBox()
         {
             if (listBoxTags.SelectedItem != null)
-                richTextBoxNoteOutput.Text = NoteService.GetNotesToString(SelectedNoteId);
+                scintilla.Text = NoteService.GetNotesToString(SelectedNoteId);
         }
 
         /// <summary>
@@ -98,7 +100,7 @@
             {
                 var category = listBoxCategories.SelectedItem.ToString();
                 var tag = listBoxTags.SelectedItem.ToString();
-                var noteEntry = richTextBoxNoteOutput.Text.Trim();
+                var noteEntry = scintilla.Text.Trim();
 
                 if (string.IsNullOrWhiteSpace(category) || string.IsNullOrWhiteSpace(tag) ||
                     string.IsNullOrWhiteSpace(noteEntry)) return;
@@ -125,7 +127,7 @@
         /// <param name="e">The <see cref="FormClosedEventArgs" /> instance containing the event data.</param>
         private void NewNote_FormClosed(object sender, FormClosedEventArgs e)
         {
-            richTextBoxNoteOutput.Clear();
+            scintilla.Clear();
             LoadForm();
             PopulateNoteBox();
         }
@@ -148,7 +150,7 @@
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void listBoxTags_SelectedIndexChanged(object sender, EventArgs e)
         {
-            richTextBoxNoteOutput.Clear();
+            scintilla.Clear();
             PopulateNoteBox();
         }
 

@@ -31,10 +31,10 @@ namespace NoteMaster.NoteMaster.UI.Forms
         {
             this.listBoxCategories = new System.Windows.Forms.ListBox();
             this.listBoxTags = new System.Windows.Forms.ListBox();
-            this.richTextBoxNoteOutput = new System.Windows.Forms.RichTextBox();
             this.buttonCreateNewNote = new System.Windows.Forms.Button();
             this.buttonEditNote = new System.Windows.Forms.Button();
             this.buttonDeleteNote = new System.Windows.Forms.Button();
+            this.scintilla = new ScintillaNET.Scintilla();
             this.SuspendLayout();
             // 
             // listBoxCategories
@@ -60,18 +60,6 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.listBoxTags.Size = new System.Drawing.Size(118, 424);
             this.listBoxTags.TabIndex = 1;
             this.listBoxTags.SelectedIndexChanged += new System.EventHandler(this.listBoxTags_SelectedIndexChanged);
-            // 
-            // richTextBoxNoteOutput
-            // 
-            this.richTextBoxNoteOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBoxNoteOutput.Enabled = false;
-            this.richTextBoxNoteOutput.Location = new System.Drawing.Point(264, 42);
-            this.richTextBoxNoteOutput.Name = "richTextBoxNoteOutput";
-            this.richTextBoxNoteOutput.Size = new System.Drawing.Size(522, 393);
-            this.richTextBoxNoteOutput.TabIndex = 2;
-            this.richTextBoxNoteOutput.Text = "";
             // 
             // buttonCreateNewNote
             // 
@@ -106,15 +94,28 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonDeleteNote.Text = "Delete";
             this.buttonDeleteNote.UseVisualStyleBackColor = true;
             // 
+            // scintilla
+            // 
+            this.scintilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.scintilla.AutoCMaxHeight = 9;
+            this.scintilla.EndAtLastLine = false;
+            this.scintilla.Location = new System.Drawing.Point(264, 42);
+            this.scintilla.MultipleSelection = true;
+            this.scintilla.Name = "scintilla";
+            this.scintilla.Size = new System.Drawing.Size(522, 396);
+            this.scintilla.TabIndex = 6;
+            // 
             // NoteMasterMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 479);
+            this.Controls.Add(this.scintilla);
             this.Controls.Add(this.buttonDeleteNote);
             this.Controls.Add(this.buttonEditNote);
             this.Controls.Add(this.buttonCreateNewNote);
-            this.Controls.Add(this.richTextBoxNoteOutput);
             this.Controls.Add(this.listBoxTags);
             this.Controls.Add(this.listBoxCategories);
             this.Name = "NoteMasterMain";
@@ -125,11 +126,11 @@ namespace NoteMaster.NoteMaster.UI.Forms
 
         #endregion
         private System.Windows.Forms.ListBox listBoxTags;
-        private System.Windows.Forms.RichTextBox richTextBoxNoteOutput;
         private System.Windows.Forms.Button buttonCreateNewNote;
         public System.Windows.Forms.ListBox listBoxCategories;
         private System.Windows.Forms.Button buttonEditNote;
         private System.Windows.Forms.Button buttonDeleteNote;
+        private ScintillaNET.Scintilla scintilla;
     }
 }
 
