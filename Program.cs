@@ -19,5 +19,7 @@ namespace NoteMaster
             NoteService.SetDbLocation();
             Application.Run(new NoteMasterMain());
         }
+
+        //TODO: Add IWritableOptions.
     }
 }

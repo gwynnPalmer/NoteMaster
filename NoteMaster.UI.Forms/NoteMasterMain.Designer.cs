@@ -29,12 +29,14 @@ namespace NoteMaster.NoteMaster.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteMasterMain));
             this.listBoxCategories = new System.Windows.Forms.ListBox();
             this.listBoxTags = new System.Windows.Forms.ListBox();
             this.buttonCreateNewNote = new System.Windows.Forms.Button();
             this.buttonEditNote = new System.Windows.Forms.Button();
             this.buttonDeleteNote = new System.Windows.Forms.Button();
             this.scintilla = new ScintillaNET.Scintilla();
+            this.labelInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxCategories
@@ -43,11 +45,11 @@ namespace NoteMaster.NoteMaster.UI.Forms
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxCategories.FormattingEnabled = true;
             this.listBoxCategories.ItemHeight = 15;
-            this.listBoxCategories.Location = new System.Drawing.Point(13, 42);
+            this.listBoxCategories.Location = new System.Drawing.Point(12, 42);
             this.listBoxCategories.Name = "listBoxCategories";
-            this.listBoxCategories.Size = new System.Drawing.Size(118, 424);
+            this.listBoxCategories.Size = new System.Drawing.Size(118, 469);
             this.listBoxCategories.TabIndex = 0;
-            this.listBoxCategories.SelectedIndexChanged += new System.EventHandler(this.listBoxCategories_SelectedIndexChanged);
+            this.listBoxCategories.SelectedIndexChanged += new System.EventHandler(this.ListBoxCategories_SelectedIndexChanged);
             // 
             // listBoxTags
             // 
@@ -55,39 +57,39 @@ namespace NoteMaster.NoteMaster.UI.Forms
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxTags.FormattingEnabled = true;
             this.listBoxTags.ItemHeight = 15;
-            this.listBoxTags.Location = new System.Drawing.Point(139, 42);
+            this.listBoxTags.Location = new System.Drawing.Point(138, 42);
             this.listBoxTags.Name = "listBoxTags";
-            this.listBoxTags.Size = new System.Drawing.Size(118, 424);
+            this.listBoxTags.Size = new System.Drawing.Size(118, 469);
             this.listBoxTags.TabIndex = 1;
-            this.listBoxTags.SelectedIndexChanged += new System.EventHandler(this.listBoxTags_SelectedIndexChanged);
+            this.listBoxTags.SelectedIndexChanged += new System.EventHandler(this.ListBoxTags_SelectedIndexChanged);
             // 
             // buttonCreateNewNote
             // 
             this.buttonCreateNewNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateNewNote.Location = new System.Drawing.Point(13, 13);
+            this.buttonCreateNewNote.Location = new System.Drawing.Point(12, 12);
             this.buttonCreateNewNote.Name = "buttonCreateNewNote";
-            this.buttonCreateNewNote.Size = new System.Drawing.Size(773, 23);
+            this.buttonCreateNewNote.Size = new System.Drawing.Size(777, 23);
             this.buttonCreateNewNote.TabIndex = 3;
             this.buttonCreateNewNote.Text = "+1up!";
             this.buttonCreateNewNote.UseVisualStyleBackColor = true;
-            this.buttonCreateNewNote.Click += new System.EventHandler(this.buttonCreateNewNote_Click);
+            this.buttonCreateNewNote.Click += new System.EventHandler(this.ButtonCreateNewNote_Click);
             // 
             // buttonEditNote
             // 
             this.buttonEditNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonEditNote.Location = new System.Drawing.Point(264, 444);
+            this.buttonEditNote.Location = new System.Drawing.Point(266, 488);
             this.buttonEditNote.Name = "buttonEditNote";
             this.buttonEditNote.Size = new System.Drawing.Size(75, 23);
             this.buttonEditNote.TabIndex = 4;
             this.buttonEditNote.Text = "Edit";
             this.buttonEditNote.UseVisualStyleBackColor = true;
-            this.buttonEditNote.Click += new System.EventHandler(this.buttonEditNote_Click);
+            this.buttonEditNote.Click += new System.EventHandler(this.ButtonEditNote_Click);
             // 
             // buttonDeleteNote
             // 
             this.buttonDeleteNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDeleteNote.Location = new System.Drawing.Point(345, 444);
+            this.buttonDeleteNote.Location = new System.Drawing.Point(347, 488);
             this.buttonDeleteNote.Name = "buttonDeleteNote";
             this.buttonDeleteNote.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteNote.TabIndex = 5;
@@ -101,26 +103,39 @@ namespace NoteMaster.NoteMaster.UI.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.scintilla.AutoCMaxHeight = 9;
             this.scintilla.EndAtLastLine = false;
-            this.scintilla.Location = new System.Drawing.Point(264, 42);
+            this.scintilla.Location = new System.Drawing.Point(263, 41);
             this.scintilla.MultipleSelection = true;
             this.scintilla.Name = "scintilla";
-            this.scintilla.Size = new System.Drawing.Size(522, 396);
+            this.scintilla.Size = new System.Drawing.Size(526, 441);
             this.scintilla.TabIndex = 6;
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelInfo.AutoSize = true;
+            this.labelInfo.Location = new System.Drawing.Point(428, 492);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(79, 15);
+            this.labelInfo.TabIndex = 7;
+            this.labelInfo.Text = "aaaaaaaaaaaa";
             // 
             // NoteMasterMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 479);
+            this.ClientSize = new System.Drawing.Size(801, 526);
+            this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.scintilla);
             this.Controls.Add(this.buttonDeleteNote);
             this.Controls.Add(this.buttonEditNote);
             this.Controls.Add(this.buttonCreateNewNote);
             this.Controls.Add(this.listBoxTags);
             this.Controls.Add(this.listBoxCategories);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoteMasterMain";
             this.Text = "NoteMaster!";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,6 +146,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
         private System.Windows.Forms.Button buttonEditNote;
         private System.Windows.Forms.Button buttonDeleteNote;
         private ScintillaNET.Scintilla scintilla;
+        private System.Windows.Forms.Label labelInfo;
     }
 }
 

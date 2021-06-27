@@ -29,6 +29,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewNote));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBoxCategory = new System.Windows.Forms.TextBox();
             this.textBoxTag = new System.Windows.Forms.TextBox();
@@ -118,7 +119,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonSaveNewNote.TabIndex = 3;
             this.buttonSaveNewNote.Text = "+1up!";
             this.buttonSaveNewNote.UseVisualStyleBackColor = true;
-            this.buttonSaveNewNote.Click += new System.EventHandler(this.buttonSaveNewNote_Click);
+            this.buttonSaveNewNote.Click += new System.EventHandler(this.ButtonSaveNewNote_Click);
             // 
             // NewNote
             // 
@@ -127,6 +128,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewNote";
             this.Text = "NewNote";
             this.groupBox1.ResumeLayout(false);

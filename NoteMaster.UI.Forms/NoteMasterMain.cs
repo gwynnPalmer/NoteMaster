@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Windows.Forms;
-    using global::NoteMaster.NoteMaster.Core.Commands;
-    using global::NoteMaster.NoteMaster.Services;
+    using Core.Commands;
+    using Services;
 
     public partial class NoteMasterMain : Form
     {
@@ -15,10 +15,19 @@
         private List<string> _categories;
 
         private bool _editMode;
+        //private readonly IWritableOptions<AppSettings> _options;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="NoteMasterMain" /> class.
         /// </summary>
+        //public NoteMasterMain(IWritableOptions<AppSettings> options)
+        //{
+        //    _options = options;
+        //    InitializeComponent();
+        //    scintilla.Margins[0].Width = 16;
+        //    LoadForm();
+        //    EditMode = false;
+        //}
         public NoteMasterMain()
         {
             InitializeComponent();
@@ -29,7 +38,6 @@
 
         public string SelectedNoteId => $"{listBoxCategories.SelectedItem}{listBoxTags.SelectedItem}";
 
-        //public bool EditMode { get; protected set; }
         public bool EditMode
         {
             get => _editMode;
@@ -47,13 +55,14 @@
                 }
             }
         }
-        
+
         private void ActivateEditMode()
         {
             listBoxCategories.Enabled = false;
             listBoxTags.Enabled = false;
             scintilla.Enabled = true;
             buttonDeleteNote.Enabled = false;
+            labelInfo.Text = @"EditMode enabled - Hit +1up! to save changes.";
         }
 
         private void DisableEditMode()
@@ -62,6 +71,7 @@
             listBoxTags.Enabled = true;
             scintilla.Enabled = false;
             buttonDeleteNote.Enabled = true;
+            labelInfo.Text = string.Empty;
         }
 
         /// <summary>
@@ -88,7 +98,7 @@
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-        private void buttonCreateNewNote_Click(object sender, EventArgs e)
+        private void ButtonCreateNewNote_Click(object sender, EventArgs e)
         {
             if (!EditMode)
             {
@@ -137,7 +147,7 @@
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-        private void listBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxCategories.SelectedItem != null)
                 listBoxTags.DataSource = NoteService.GetDistinctTags(listBoxCategories.SelectedItem.ToString());
@@ -148,13 +158,13 @@
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-        private void listBoxTags_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBoxTags_SelectedIndexChanged(object sender, EventArgs e)
         {
             scintilla.Clear();
             PopulateNoteBox();
         }
 
-        private void buttonEditNote_Click(object sender, EventArgs e)
+        private void ButtonEditNote_Click(object sender, EventArgs e)
         {
             EditMode = !EditMode;
         }

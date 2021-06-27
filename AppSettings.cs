@@ -2,10 +2,18 @@
 {
     public class AppSettings
     {
-        /// <summary>
-        ///     The configuration section name
-        /// </summary>
         public const string ConfigurationSectionName = "AppSettings";
+
+        public IWritableOptions<AppSettings> Options;
+
+        public AppSettings()
+        {
+        }
+
+        public AppSettings(IWritableOptions<AppSettings> options)
+        {
+            Options = options;
+        }
 
         public string DataFilePath { get; set; }
     }

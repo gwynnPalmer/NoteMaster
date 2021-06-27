@@ -143,7 +143,7 @@
         }
 
         /// <summary>
-        /// Gets the notes to string.
+        ///     Gets the notes to string.
         /// </summary>
         /// <param name="noteId">The note identifier.</param>
         /// <returns></returns>
