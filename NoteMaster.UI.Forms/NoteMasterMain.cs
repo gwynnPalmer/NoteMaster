@@ -180,5 +180,21 @@
         {
             EditModeEnabled = !EditModeEnabled;
         }
+
+        private void buttonDeleteNote_Click(object sender, EventArgs e)
+        {
+            if (SelectedNoteId == null) return;
+
+            var confirmResult = MessageBox.Show($@"Are you sure you wish to delete note {listBoxTags.SelectedItem}?",
+                @"Confirm delete.", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                NoteService.Delete(SelectedNoteId);
+                NoteService.ReWriteDataBase();
+                scintilla.Clear();
+                LoadForm();
+                PopulateNoteBox();
+            }
+        }
     }
 }

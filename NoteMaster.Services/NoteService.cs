@@ -189,5 +189,11 @@
 
             obj?.OverWrite(command);
         }
+
+        public static void Delete(string noteId)
+        {
+            var obj = Binder.FirstOrDefault(x => x.NoteId == noteId);
+            Binder.Remove(obj);
+        }
     }
 }
