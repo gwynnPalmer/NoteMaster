@@ -1,5 +1,3 @@
-Category=Features[;]Tag=#Search[;]Note=Search by category, tag, keywords.[/Fin]
-Category=Features[;]Tag=#NewNote[;]Note=Context menu on Categories to add new tag+note.[/Fin]
-Category=Features[;]Tag=#Customizability[;]Note=Options to change lexer to preferred style.
+Category=Features[;]Tag=#Search[;]Note=Search by category, tag, keywords.[/Fin]Category=Features[;]Tag=#NewNote[;]Note=Context menu on Categories to add new tag+note.[/Fin]Category=Features[;]Tag=#Customizability[;]Note=Options to change lexer to preferred style.
 
 General options to freely change components.[/Fin]

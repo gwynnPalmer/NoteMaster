@@ -97,6 +97,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonDeleteNote.TabIndex = 5;
             this.buttonDeleteNote.Text = "Delete";
             this.buttonDeleteNote.UseVisualStyleBackColor = true;
+            this.buttonDeleteNote.Click += new System.EventHandler(this.buttonDeleteNote_Click);
             // 
             // scintilla
             // 
