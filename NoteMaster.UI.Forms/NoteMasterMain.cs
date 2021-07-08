@@ -149,6 +149,11 @@
         /// <param name="e">The <see cref="FormClosedEventArgs" /> instance containing the event data.</param>
         private void NewNote_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Reload();
+        }
+
+        private void Reload()
+        {
             scintilla.Clear();
             LoadForm();
             PopulateNoteBox();
@@ -191,9 +196,7 @@
             {
                 NoteService.Delete(SelectedNoteId);
                 NoteService.ReWriteDataBase();
-                scintilla.Clear();
-                LoadForm();
-                PopulateNoteBox();
+                Reload();
             }
         }
     }
