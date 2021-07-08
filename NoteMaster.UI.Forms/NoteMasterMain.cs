@@ -14,37 +14,43 @@
         /// </summary>
         private List<string> _categories;
 
-        private bool _editMode;
-        //private readonly IWritableOptions<AppSettings> _options;
+        /// <summary>
+        /// The edit mode enabled enabled
+        /// </summary>
+        private bool _editModeEnabledEnabled;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="NoteMasterMain" /> class.
+        /// Initializes a new instance of the <see cref="NoteMasterMain"/> class.
         /// </summary>
-        //public NoteMasterMain(IWritableOptions<AppSettings> options)
-        //{
-        //    _options = options;
-        //    InitializeComponent();
-        //    scintilla.Margins[0].Width = 16;
-        //    LoadForm();
-        //    EditMode = false;
-        //}
         public NoteMasterMain()
         {
             InitializeComponent();
             scintilla.Margins[0].Width = 16;
             LoadForm();
-            EditMode = false;
+            EditModeEnabled = false;
         }
 
+        /// <summary>
+        /// Gets the selected note identifier.
+        /// </summary>
+        /// <value>
+        /// The selected note identifier.
+        /// </value>
         public string SelectedNoteId => $"{listBoxCategories.SelectedItem}{listBoxTags.SelectedItem}";
 
-        public bool EditMode
+        /// <summary>
+        /// Gets or sets a value indicating whether [edit mode enabled].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [edit mode enabled]; otherwise, <c>false</c>.
+        /// </value>
+        public bool EditModeEnabled
         {
-            get => _editMode;
+            get => _editModeEnabledEnabled;
             set
             {
-                _editMode = value;
-                switch (_editMode)
+                _editModeEnabledEnabled = value;
+                switch (_editModeEnabledEnabled)
                 {
                     case true:
                         ActivateEditMode();
@@ -56,15 +62,21 @@
             }
         }
 
+        /// <summary>
+        /// Activates the edit mode.
+        /// </summary>
         private void ActivateEditMode()
         {
             listBoxCategories.Enabled = false;
             listBoxTags.Enabled = false;
             scintilla.Enabled = true;
             buttonDeleteNote.Enabled = false;
-            labelInfo.Text = @"EditMode enabled - Hit +1up! to save changes.";
+            labelInfo.Text = @"EditModeEnabled enabled - Hit +1up! to save changes.";
         }
 
+        /// <summary>
+        /// Disables the edit mode.
+        /// </summary>
         private void DisableEditMode()
         {
             listBoxCategories.Enabled = true;
@@ -100,7 +112,7 @@
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void ButtonCreateNewNote_Click(object sender, EventArgs e)
         {
-            if (!EditMode)
+            if (!EditModeEnabled)
             {
                 var newNote = new NewNote();
                 newNote.FormClosed += NewNote_FormClosed;
@@ -126,7 +138,7 @@
                     NoteService.UpdateDatabase(command);
                 }
 
-                EditMode = false;
+                EditModeEnabled = false;
             }
         }
 
@@ -166,7 +178,7 @@
 
         private void ButtonEditNote_Click(object sender, EventArgs e)
         {
-            EditMode = !EditMode;
+            EditModeEnabled = !EditModeEnabled;
         }
     }
 }

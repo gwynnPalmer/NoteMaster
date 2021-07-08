@@ -1,2 +1,5 @@
-Category=a[;]Tag=#b[;]Note=ab[/Fin]Category=a[;]Tag=#c[;]Note=ac[/Fin]Category=b[;]Tag=#b[;]Note=b[/Fin]Category=c[;]Tag=#a[;]Note=ca[/Fin]Category=f[;]Tag=#b[;]Note=fb[/Fin]Category=d[;]Tag=#a[;]Note=da[/Fin]Category=a[;]Tag=#a[;]Note=a[/Fin]
 Category=Features[;]Tag=#Search[;]Note=Search by category, tag, keywords.[/Fin]
+Category=Features[;]Tag=#NewNote[;]Note=Context menu on Categories to add new tag+note.[/Fin]
+Category=Features[;]Tag=#Customizability[;]Note=Options to change lexer to preferred style.
+
+General options to freely change components.[/Fin]

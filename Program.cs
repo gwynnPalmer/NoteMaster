@@ -2,6 +2,10 @@ namespace NoteMaster
 {
     using System;
     using System.Windows.Forms;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.Extensions.Options;
     using NoteMaster.Services;
     using NoteMaster.UI.Forms;
 
@@ -16,6 +20,7 @@ namespace NoteMaster
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             NoteService.SetDbLocation();
             Application.Run(new NoteMasterMain());
         }
