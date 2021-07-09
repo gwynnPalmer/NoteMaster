@@ -17,7 +17,7 @@
         /// <summary>
         /// The edit mode enabled enabled
         /// </summary>
-        private bool _editModeEnabledEnabled;
+        private bool _editModeEnabled;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NoteMasterMain"/> class.
@@ -46,11 +46,11 @@
         /// </value>
         public bool EditModeEnabled
         {
-            get => _editModeEnabledEnabled;
+            get => _editModeEnabled;
             set
             {
-                _editModeEnabledEnabled = value;
-                switch (_editModeEnabledEnabled)
+                _editModeEnabled = value;
+                switch (_editModeEnabled)
                 {
                     case true:
                         ActivateEditMode();
@@ -87,7 +87,7 @@
         }
 
         /// <summary>
-        ///     Loads the form.
+        /// Loads the form.
         /// </summary>
         public void LoadForm()
         {
@@ -106,7 +106,7 @@
         }
 
         /// <summary>
-        ///     Handles the Click event of the buttonCreateNewNote control.
+        /// Handles the Click event of the buttonCreateNewNote control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -143,7 +143,7 @@
         }
 
         /// <summary>
-        ///     Handles the formClosed event.
+        /// Handles the formClosed event.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="FormClosedEventArgs" /> instance containing the event data.</param>
@@ -152,6 +152,9 @@
             Reload();
         }
 
+        /// <summary>
+        /// Reloads this instance.
+        /// </summary>
         private void Reload()
         {
             scintilla.Clear();
@@ -160,7 +163,7 @@
         }
 
         /// <summary>
-        ///     Handles the SelectedIndexChanged event of the listBoxCategories control.
+        /// Handles the SelectedIndexChanged event of the listBoxCategories control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -171,7 +174,7 @@
         }
 
         /// <summary>
-        ///     Handles the SelectedIndexChanged event of the listBoxTags control.
+        /// Handles the SelectedIndexChanged event of the listBoxTags control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
