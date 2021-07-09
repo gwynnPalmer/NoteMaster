@@ -97,7 +97,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonDeleteNote.TabIndex = 5;
             this.buttonDeleteNote.Text = "Delete";
             this.buttonDeleteNote.UseVisualStyleBackColor = true;
-            this.buttonDeleteNote.Click += new System.EventHandler(this.buttonDeleteNote_Click);
+            this.buttonDeleteNote.Click += new System.EventHandler(this.ButtonDeleteNote_Click);
             // 
             // scintilla
             // 
@@ -111,6 +111,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.scintilla.Name = "scintilla";
             this.scintilla.Size = new System.Drawing.Size(526, 444);
             this.scintilla.TabIndex = 6;
+            this.scintilla.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.Scintilla_CharAdded);
             // 
             // labelInfo
             // 
