@@ -34,7 +34,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.textBoxCategory = new System.Windows.Forms.TextBox();
             this.textBoxTag = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxNote = new System.Windows.Forms.TextBox();
+            this.scintillaNew = new ScintillaNET.Scintilla();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSaveNewNote = new System.Windows.Forms.Button();
@@ -67,7 +67,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.textBoxNote);
+            this.groupBox1.Controls.Add(this.scintillaNew);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.buttonSaveNewNote);
@@ -80,16 +80,18 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Note";
             // 
-            // textBoxNote
+            // scintillaNew
             // 
-            this.textBoxNote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.scintillaNew.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNote.Location = new System.Drawing.Point(7, 70);
-            this.textBoxNote.Multiline = true;
-            this.textBoxNote.Name = "textBoxNote";
-            this.textBoxNote.Size = new System.Drawing.Size(762, 320);
-            this.textBoxNote.TabIndex = 6;
+            this.scintillaNew.AutoCMaxHeight = 9;
+            this.scintillaNew.EndAtLastLine = false;
+            this.scintillaNew.Location = new System.Drawing.Point(7, 70);
+            this.scintillaNew.Name = "scintillaNew";
+            this.scintillaNew.Size = new System.Drawing.Size(762, 320);
+            this.scintillaNew.TabIndex = 6;
+            this.scintillaNew.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.Scintilla_CharAdded);
             // 
             // label2
             // 
@@ -144,9 +146,9 @@ namespace NoteMaster.NoteMaster.UI.Forms
         private System.Windows.Forms.TextBox textBoxCategory;
         private System.Windows.Forms.TextBox textBoxTag;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxNote;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSaveNewNote;
+        private ScintillaNET.Scintilla scintillaNew;
     }
 }

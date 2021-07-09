@@ -5,37 +5,24 @@
     using System.IO;
     using System.Windows.Forms;
     using Core.Commands;
+    using ScintillaNET;
     using Services;
 
     public partial class NoteMasterMain : Form
     {
-        /// <summary>
-        ///     The categories
-        /// </summary>
         private List<string> _categories;
-
-        /// <summary>
-        /// The edit mode enabled enabled
-        /// </summary>
         private bool _editModeEnabled;
+        private readonly CrudeDictionary _crudeDictionary;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NoteMasterMain"/> class.
-        /// </summary>
         public NoteMasterMain()
         {
             InitializeComponent();
             scintilla.Margins[0].Width = 16;
             LoadForm();
             EditModeEnabled = false;
+            _crudeDictionary = new CrudeDictionary();
         }
 
-        /// <summary>
-        /// Gets the selected note identifier.
-        /// </summary>
-        /// <value>
-        /// The selected note identifier.
-        /// </value>
         public string SelectedNoteId => $"{listBoxCategories.SelectedItem}{listBoxTags.SelectedItem}";
 
         /// <summary>
@@ -62,54 +49,20 @@
             }
         }
 
-        /// <summary>
-        /// Activates the edit mode.
-        /// </summary>
-        private void ActivateEditMode()
+        #region Event-Actions
+
+        private void Scintilla_CharAdded(object sender, CharAddedEventArgs e)
         {
-            listBoxCategories.Enabled = false;
-            listBoxTags.Enabled = false;
-            scintilla.Enabled = true;
-            buttonDeleteNote.Enabled = false;
-            labelInfo.Text = @"EditModeEnabled enabled - Hit +1up! to save changes.";
+            var currentPosition = scintilla.CurrentPosition;
+            var wordStartPosition = scintilla.WordStartPosition(currentPosition, true);
+            var lengthEntered = currentPosition - wordStartPosition;
+            if (lengthEntered > 0)
+            {
+                if (!scintilla.AutoCActive)
+                    scintilla.AutoCShow(lengthEntered, _crudeDictionary.Words);
+            }
         }
 
-        /// <summary>
-        /// Disables the edit mode.
-        /// </summary>
-        private void DisableEditMode()
-        {
-            listBoxCategories.Enabled = true;
-            listBoxTags.Enabled = true;
-            scintilla.Enabled = false;
-            buttonDeleteNote.Enabled = true;
-            labelInfo.Text = string.Empty;
-        }
-
-        /// <summary>
-        /// Loads the form.
-        /// </summary>
-        public void LoadForm()
-        {
-            NoteService.FileToBinder(File.ReadAllText(NoteService.DbLocation));
-            _categories = NoteService.GetDistinctCategories();
-            listBoxCategories.DataSource = _categories;
-        }
-
-        /// <summary>
-        ///     Populates the note box.
-        /// </summary>
-        private void PopulateNoteBox()
-        {
-            if (listBoxTags.SelectedItem != null)
-                scintilla.Text = NoteService.GetNotesToString(SelectedNoteId);
-        }
-
-        /// <summary>
-        /// Handles the Click event of the buttonCreateNewNote control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void ButtonCreateNewNote_Click(object sender, EventArgs e)
         {
             if (!EditModeEnabled)
@@ -142,42 +95,17 @@
             }
         }
 
-        /// <summary>
-        /// Handles the formClosed event.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="FormClosedEventArgs" /> instance containing the event data.</param>
         private void NewNote_FormClosed(object sender, FormClosedEventArgs e)
         {
             Reload();
         }
 
-        /// <summary>
-        /// Reloads this instance.
-        /// </summary>
-        private void Reload()
-        {
-            scintilla.Clear();
-            LoadForm();
-            PopulateNoteBox();
-        }
-
-        /// <summary>
-        /// Handles the SelectedIndexChanged event of the listBoxCategories control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void ListBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxCategories.SelectedItem != null)
                 listBoxTags.DataSource = NoteService.GetDistinctTags(listBoxCategories.SelectedItem.ToString());
         }
 
-        /// <summary>
-        /// Handles the SelectedIndexChanged event of the listBoxTags control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void ListBoxTags_SelectedIndexChanged(object sender, EventArgs e)
         {
             scintilla.Clear();
@@ -189,7 +117,7 @@
             EditModeEnabled = !EditModeEnabled;
         }
 
-        private void buttonDeleteNote_Click(object sender, EventArgs e)
+        private void ButtonDeleteNote_Click(object sender, EventArgs e)
         {
             if (SelectedNoteId == null) return;
 
@@ -202,5 +130,50 @@
                 Reload();
             }
         }
+
+        #endregion
+
+        #region Methods
+
+        private void Reload()
+        {
+            scintilla.Clear();
+            LoadForm();
+            PopulateNoteBox();
+        }
+
+        private void ActivateEditMode()
+        {
+            listBoxCategories.Enabled = false;
+            listBoxTags.Enabled = false;
+            scintilla.Enabled = true;
+            buttonDeleteNote.Enabled = false;
+            labelInfo.Text = @"EditModeEnabled enabled - Hit +1up! to save changes.";
+        }
+
+        private void DisableEditMode()
+        {
+            listBoxCategories.Enabled = true;
+            listBoxTags.Enabled = true;
+            scintilla.Enabled = false;
+            buttonDeleteNote.Enabled = true;
+            labelInfo.Text = string.Empty;
+        }
+
+        public void LoadForm()
+        {
+            NoteService.FileToBinder(File.ReadAllText(NoteService.DbLocation));
+            _categories = NoteService.GetDistinctCategories();
+            listBoxCategories.DataSource = _categories;
+        }
+
+        private void PopulateNoteBox()
+        {
+            if (listBoxTags.SelectedItem != null)
+                scintilla.Text = NoteService.GetNotesToString(SelectedNoteId);
+        }
+
+        #endregion
+
     }
 }
