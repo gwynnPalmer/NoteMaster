@@ -2,13 +2,15 @@
 {
     using System;
     using System.Windows.Forms;
+    using Core;
     using Core.Commands;
     using ScintillaNET;
     using Services;
 
     public partial class NewNote : Form
     {
-        private readonly CrudeDictionary _crudeDictionary;
+        private readonly CrudeDictionary _crudeDictionary = new CrudeDictionary();
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="NewNote" /> class.
         /// </summary>
@@ -16,7 +18,6 @@
         {
             InitializeComponent();
             scintillaNew.Margins[0].Width = 16;
-            _crudeDictionary = new CrudeDictionary();
         }
 
         /// <summary>
@@ -56,11 +57,8 @@
             var wordStartPosition = scintillaNew.WordStartPosition(currentPosition, true);
             var lengthEntered = currentPosition - wordStartPosition;
             if (lengthEntered > 0)
-            {
                 if (!scintillaNew.AutoCActive)
                     scintillaNew.AutoCShow(lengthEntered, _crudeDictionary.Words);
-            }
         }
-
     }
 }
