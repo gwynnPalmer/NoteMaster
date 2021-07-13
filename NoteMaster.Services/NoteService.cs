@@ -28,6 +28,20 @@
         /// </summary>
         public static void SetDbLocation()
         {
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\NoteMaster\\NoteMasterDB.txt";
+            if (!File.Exists(path))
+            {
+                File.Create(path);
+            }
+
+            DbLocation = path;
+        }
+
+        /// <summary>
+        /// Gets the new database file.
+        /// </summary>
+        public static void GetNewDbFile()
+        {
             var saveFileDialog1 = new SaveFileDialog
             {
                 Filter = @"Txt files (*.txt)|*.txt",

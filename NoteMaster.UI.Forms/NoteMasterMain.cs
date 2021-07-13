@@ -4,15 +4,16 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Windows.Forms;
+    using Core;
     using Core.Commands;
     using ScintillaNET;
     using Services;
 
     public partial class NoteMasterMain : Form
     {
+        private readonly CrudeDictionary _crudeDictionary = new CrudeDictionary();
         private List<string> _categories;
         private bool _editModeEnabled;
-        private readonly CrudeDictionary _crudeDictionary;
 
         public NoteMasterMain()
         {
@@ -20,16 +21,15 @@
             scintilla.Margins[0].Width = 16;
             LoadForm();
             EditModeEnabled = false;
-            _crudeDictionary = new CrudeDictionary();
         }
 
         public string SelectedNoteId => $"{listBoxCategories.SelectedItem}{listBoxTags.SelectedItem}";
 
         /// <summary>
-        /// Gets or sets a value indicating whether [edit mode enabled].
+        ///     Gets or sets a value indicating whether [edit mode enabled].
         /// </summary>
         /// <value>
-        ///   <c>true</c> if [edit mode enabled]; otherwise, <c>false</c>.
+        ///     <c>true</c> if [edit mode enabled]; otherwise, <c>false</c>.
         /// </value>
         public bool EditModeEnabled
         {
@@ -57,10 +57,8 @@
             var wordStartPosition = scintilla.WordStartPosition(currentPosition, true);
             var lengthEntered = currentPosition - wordStartPosition;
             if (lengthEntered > 0)
-            {
                 if (!scintilla.AutoCActive)
                     scintilla.AutoCShow(lengthEntered, _crudeDictionary.Words);
-            }
         }
 
         private void ButtonCreateNewNote_Click(object sender, EventArgs e)
@@ -174,6 +172,5 @@
         }
 
         #endregion
-
     }
 }
