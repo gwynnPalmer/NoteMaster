@@ -15,15 +15,13 @@
         /// </summary>
         public static List<Note> Binder = new List<Note>();
 
-        public static RingBinder NoteBinder = new RingBinder();
-
         /// <summary>
         /// Gets the database location.
         /// </summary>
         /// <value>
         /// The database location.
         /// </value>
-        public static string FileLocation { get; private set; }
+        public static string TextFileLocation { get; private set; }
 
         /// <summary>
         ///     Sets the database location.
@@ -36,7 +34,7 @@
                 File.Create(path);
             }
 
-            FileLocation = path;
+            TextFileLocation = path;
         }
 
         /// <summary>
@@ -50,24 +48,24 @@
                 Title = @"Assign your Database."
             };
             saveFileDialog1.ShowDialog();
-            FileLocation = saveFileDialog1.FileName;
+            TextFileLocation = saveFileDialog1.FileName;
         }
 
         /// <summary>
         ///     ReWrites the data base .txt file with data from the Binder.
         /// </summary>
-        public static void ReWriteFile()
+        public static void ReWriteTextFile()
         {
             var newDb = string.Join(string.Empty, BinderToString());
 
-            var sw = new StreamWriter(FileLocation);
+            var sw = new StreamWriter(TextFileLocation);
             sw.WriteLine(newDb);
             sw.Close();
         }
 
         private static string DatabaseToString()
         {
-            var sr = new StreamReader(FileLocation);
+            var sr = new StreamReader(TextFileLocation);
             var previousNotes = sr.ReadToEnd();
             sr.Close();
             return previousNotes;
@@ -80,7 +78,7 @@
         public static void UpdateDatabase(NoteCommand command)
         {
             var previousNotes = DatabaseToString();
-            var sw = new StreamWriter(FileLocation);
+            var sw = new StreamWriter(TextFileLocation);
             sw.WriteLine(previousNotes + new Note(command));
             sw.Close();
         }

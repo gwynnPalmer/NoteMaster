@@ -2,7 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
+    using System.Text;
     using System.Windows.Forms;
     using Core;
     using Core.Commands;
@@ -14,6 +16,7 @@
         private readonly CrudeDictionary _crudeDictionary = new CrudeDictionary();
         private List<string> _categories;
         private bool _editModeEnabled;
+
 
         public NoteMasterMain()
         {
@@ -82,7 +85,7 @@
                 if (NoteService.IsMatch(command))
                 {
                     NoteService.OverWrite(command);
-                    NoteService.ReWriteFile();
+                    NoteService.ReWriteTextFile();
                 }
                 else
                 {
@@ -95,7 +98,7 @@
 
         private void NewNote_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Reload();
+            ReloadForm();
         }
 
         private void ListBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,7 +115,14 @@
 
         private void ButtonEditNote_Click(object sender, EventArgs e)
         {
-            EditModeEnabled = !EditModeEnabled;
+            if (listBoxCategories.SelectedItem != null && listBoxTags.SelectedItem != null)
+            {
+                EditModeEnabled = !EditModeEnabled;
+            }
+            else
+            {
+                MessageBox.Show(@"No note selected.", @"No Puedo.", MessageBoxButtons.OK);
+            }
         }
 
         private void ButtonDeleteNote_Click(object sender, EventArgs e)
@@ -121,23 +131,56 @@
 
             var confirmResult = MessageBox.Show($@"Are you sure you wish to delete note {listBoxTags.SelectedItem}?",
                 @"Confirm delete.", MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
-            {
-                NoteService.Delete(SelectedNoteId);
-                NoteService.ReWriteFile();
-                Reload();
-            }
+
+            if (confirmResult != DialogResult.Yes) return;
+
+            NoteService.Delete(SelectedNoteId);
+            NoteService.ReWriteTextFile();
+            ReloadForm();
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            RestartForm();
         }
 
         #endregion
 
         #region Methods
 
-        private void Reload()
+        public void LoadForm()
+        {
+            NoteService.FileToBinder(File.ReadAllText(NoteService.TextFileLocation));
+            _categories = NoteService.GetDistinctCategories();
+            listBoxCategories.DataSource = _categories;
+        }
+
+        private void UnloadForm()
+        {
+            _categories.Clear();
+            listBoxTags.DataSource = null;
+            listBoxTags.Items.Clear();
+            listBoxCategories.DataSource = null;
+            listBoxCategories.Items.Clear();
+        }
+
+        private void ReloadForm()
         {
             scintilla.Clear();
             LoadForm();
             PopulateNoteBox();
+        }
+
+        private void RestartForm()
+        {
+            NoteService.Binder.Clear();
+            UnloadForm();            
+            NoteService.GetNewFile();
+            ReloadForm();
+        }
+        private void PopulateNoteBox()
+        {
+            scintilla.Text = listBoxTags.SelectedItem != null ? NoteService.GetNotesToString(SelectedNoteId) : string.Empty;
         }
 
         private void ActivateEditMode()
@@ -146,7 +189,8 @@
             listBoxTags.Enabled = false;
             scintilla.Enabled = true;
             buttonDeleteNote.Enabled = false;
-            labelInfo.Text = @"EditModeEnabled enabled - Hit +1up! to save changes.";
+            buttonOpen.Enabled = false;
+            this.Text = @"NoteMaster! [EditMode - Hit +1up! to save changes]";
         }
 
         private void DisableEditMode()
@@ -155,22 +199,11 @@
             listBoxTags.Enabled = true;
             scintilla.Enabled = false;
             buttonDeleteNote.Enabled = true;
-            labelInfo.Text = string.Empty;
-        }
-
-        public void LoadForm()
-        {
-            NoteService.FileToBinder(File.ReadAllText(NoteService.FileLocation));
-            _categories = NoteService.GetDistinctCategories();
-            listBoxCategories.DataSource = _categories;
-        }
-
-        private void PopulateNoteBox()
-        {
-            if (listBoxTags.SelectedItem != null)
-                scintilla.Text = NoteService.GetNotesToString(SelectedNoteId);
+            buttonOpen.Enabled = true;
+            this.Text = @"NoteMaster!";
         }
 
         #endregion
+
     }
 }
