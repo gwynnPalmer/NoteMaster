@@ -36,9 +36,9 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonEditNote = new System.Windows.Forms.Button();
             this.buttonDeleteNote = new System.Windows.Forms.Button();
             this.scintilla = new ScintillaNET.Scintilla();
-            this.labelInfo = new System.Windows.Forms.Label();
             this.labelCategories = new System.Windows.Forms.Label();
             this.labelTags = new System.Windows.Forms.Label();
+            this.buttonOpen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxCategories
@@ -113,16 +113,6 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.scintilla.TabIndex = 6;
             this.scintilla.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.Scintilla_CharAdded);
             // 
-            // labelInfo
-            // 
-            this.labelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelInfo.AutoSize = true;
-            this.labelInfo.Location = new System.Drawing.Point(428, 492);
-            this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(79, 15);
-            this.labelInfo.TabIndex = 7;
-            this.labelInfo.Text = "aaaaaaaaaaaa";
-            // 
             // labelCategories
             // 
             this.labelCategories.AutoSize = true;
@@ -141,14 +131,24 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.labelTags.TabIndex = 9;
             this.labelTags.Text = "Tags:";
             // 
+            // buttonOpen
+            // 
+            this.buttonOpen.Location = new System.Drawing.Point(428, 488);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(75, 23);
+            this.buttonOpen.TabIndex = 10;
+            this.buttonOpen.Text = "Open";
+            this.buttonOpen.UseVisualStyleBackColor = true;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            // 
             // NoteMasterMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 526);
+            this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.labelTags);
             this.Controls.Add(this.labelCategories);
-            this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.scintilla);
             this.Controls.Add(this.buttonDeleteNote);
             this.Controls.Add(this.buttonEditNote);
@@ -170,9 +170,9 @@ namespace NoteMaster.NoteMaster.UI.Forms
         private System.Windows.Forms.Button buttonEditNote;
         private System.Windows.Forms.Button buttonDeleteNote;
         private ScintillaNET.Scintilla scintilla;
-        private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.Label labelCategories;
         private System.Windows.Forms.Label labelTags;
+        private System.Windows.Forms.Button buttonOpen;
     }
 }
 

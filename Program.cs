@@ -22,6 +22,11 @@ namespace NoteMaster
             Application.SetCompatibleTextRenderingDefault(false);
 
             NoteService.SetFileLocation();
+            RunNoteMaster();
+        }
+
+        public static void RunNoteMaster()
+        {
             Application.Run(new NoteMasterMain());
         }
 
