@@ -82,7 +82,7 @@
                 if (NoteService.IsMatch(command))
                 {
                     NoteService.OverWrite(command);
-                    NoteService.ReWriteDataBase();
+                    NoteService.ReWriteFile();
                 }
                 else
                 {
@@ -124,7 +124,7 @@
             if (confirmResult == DialogResult.Yes)
             {
                 NoteService.Delete(SelectedNoteId);
-                NoteService.ReWriteDataBase();
+                NoteService.ReWriteFile();
                 Reload();
             }
         }
@@ -160,7 +160,7 @@
 
         public void LoadForm()
         {
-            NoteService.FileToBinder(File.ReadAllText(NoteService.DbLocation));
+            NoteService.FileToBinder(File.ReadAllText(NoteService.FileLocation));
             _categories = NoteService.GetDistinctCategories();
             listBoxCategories.DataSource = _categories;
         }

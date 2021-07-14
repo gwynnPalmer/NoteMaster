@@ -21,7 +21,7 @@ namespace NoteMaster
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            NoteService.SetDbLocation();
+            NoteService.SetFileLocation();
             Application.Run(new NoteMasterMain());
         }
 
