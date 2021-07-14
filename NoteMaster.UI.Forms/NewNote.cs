@@ -40,7 +40,7 @@
                 if (NoteService.IsMatch(command))
                 {
                     NoteService.Update(command);
-                    NoteService.ReWriteDataBase();
+                    NoteService.ReWriteFile();
                 }
                 else
                 {

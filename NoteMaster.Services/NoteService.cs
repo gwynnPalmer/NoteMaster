@@ -15,18 +15,20 @@
         /// </summary>
         public static List<Note> Binder = new List<Note>();
 
+        public static RingBinder NoteBinder = new RingBinder();
+
         /// <summary>
-        ///     Gets the database location.
+        /// Gets the database location.
         /// </summary>
         /// <value>
-        ///     The database location.
+        /// The database location.
         /// </value>
-        public static string DbLocation { get; private set; }
+        public static string FileLocation { get; private set; }
 
         /// <summary>
         ///     Sets the database location.
         /// </summary>
-        public static void SetDbLocation()
+        public static void SetFileLocation()
         {
             string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\NoteMaster\\NoteMasterDB.txt";
             if (!File.Exists(path))
@@ -34,13 +36,13 @@
                 File.Create(path);
             }
 
-            DbLocation = path;
+            FileLocation = path;
         }
 
         /// <summary>
         /// Gets the new database file.
         /// </summary>
-        public static void GetNewDbFile()
+        public static void GetNewFile()
         {
             var saveFileDialog1 = new SaveFileDialog
             {
@@ -48,24 +50,24 @@
                 Title = @"Assign your Database."
             };
             saveFileDialog1.ShowDialog();
-            DbLocation = saveFileDialog1.FileName;
+            FileLocation = saveFileDialog1.FileName;
         }
 
         /// <summary>
         ///     ReWrites the data base .txt file with data from the Binder.
         /// </summary>
-        public static void ReWriteDataBase()
+        public static void ReWriteFile()
         {
             var newDb = string.Join(string.Empty, BinderToString());
 
-            var sw = new StreamWriter(DbLocation);
+            var sw = new StreamWriter(FileLocation);
             sw.WriteLine(newDb);
             sw.Close();
         }
 
         private static string DatabaseToString()
         {
-            var sr = new StreamReader(DbLocation);
+            var sr = new StreamReader(FileLocation);
             var previousNotes = sr.ReadToEnd();
             sr.Close();
             return previousNotes;
@@ -78,14 +80,7 @@
         public static void UpdateDatabase(NoteCommand command)
         {
             var previousNotes = DatabaseToString();
-            var sw = new StreamWriter(DbLocation);
-            sw.WriteLine(previousNotes + new Note(command));
-            sw.Close();
-        }
-
-        public static void UpdateDatabase(NoteCommand command, string previousNotes)
-        {
-            var sw = new StreamWriter(DbLocation);
+            var sw = new StreamWriter(FileLocation);
             sw.WriteLine(previousNotes + new Note(command));
             sw.Close();
         }
