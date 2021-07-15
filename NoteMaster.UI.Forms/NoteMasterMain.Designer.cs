@@ -133,6 +133,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             // buttonOpen
             // 
+            this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonOpen.Location = new System.Drawing.Point(428, 488);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(75, 23);
