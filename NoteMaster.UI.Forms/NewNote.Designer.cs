@@ -30,10 +30,9 @@ namespace NoteMaster.NoteMaster.UI.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewNote));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBoxCategory = new System.Windows.Forms.TextBox();
-            this.textBoxTag = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxTags = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategories = new System.Windows.Forms.ComboBox();
             this.scintillaNew = new ScintillaNET.Scintilla();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,44 +40,40 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBoxCategory
-            // 
-            this.textBoxCategory.Location = new System.Drawing.Point(7, 40);
-            this.textBoxCategory.Name = "textBoxCategory";
-            this.textBoxCategory.Size = new System.Drawing.Size(100, 23);
-            this.textBoxCategory.TabIndex = 1;
-            // 
-            // textBoxTag
-            // 
-            this.textBoxTag.Location = new System.Drawing.Point(113, 40);
-            this.textBoxTag.Name = "textBoxTag";
-            this.textBoxTag.Size = new System.Drawing.Size(100, 23);
-            this.textBoxTag.TabIndex = 2;
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.comboBoxTags);
+            this.groupBox1.Controls.Add(this.comboBoxCategories);
             this.groupBox1.Controls.Add(this.scintillaNew);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.buttonSaveNewNote);
-            this.groupBox1.Controls.Add(this.textBoxCategory);
-            this.groupBox1.Controls.Add(this.textBoxTag);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(775, 425);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Note";
+            // 
+            // comboBoxTags
+            // 
+            this.comboBoxTags.FormattingEnabled = true;
+            this.comboBoxTags.Location = new System.Drawing.Point(134, 40);
+            this.comboBoxTags.Name = "comboBoxTags";
+            this.comboBoxTags.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxTags.TabIndex = 8;
+            // 
+            // comboBoxCategories
+            // 
+            this.comboBoxCategories.FormattingEnabled = true;
+            this.comboBoxCategories.Location = new System.Drawing.Point(7, 40);
+            this.comboBoxCategories.Name = "comboBoxCategories";
+            this.comboBoxCategories.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxCategories.TabIndex = 7;
+            this.comboBoxCategories.SelectedIndexChanged += new System.EventHandler(this.Update_Tags);
             // 
             // scintillaNew
             // 
@@ -96,7 +91,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(113, 22);
+            this.label2.Location = new System.Drawing.Point(134, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 15);
             this.label2.TabIndex = 5;
@@ -129,7 +124,6 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewNote";
             this.Text = "NewNote";
@@ -142,13 +136,12 @@ namespace NoteMaster.NoteMaster.UI.Forms
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBoxCategory;
-        private System.Windows.Forms.TextBox textBoxTag;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSaveNewNote;
         private ScintillaNET.Scintilla scintillaNew;
+        private System.Windows.Forms.ComboBox comboBoxCategories;
+        private System.Windows.Forms.ComboBox comboBoxTags;
     }
 }

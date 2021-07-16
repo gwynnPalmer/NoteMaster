@@ -1,33 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NoteMaster.NoteMaster.Core.Entities
+﻿namespace NoteMaster.NoteMaster.Core.Entities
 {
+    using System;
+    using System.Collections.Generic;
     using System.Linq;
     using Commands;
 
     public class RingBinder
     {
-        public List<Note> Notes;
         public List<string> Categories;
+        public List<Note> Notes;
 
         public RingBinder()
         {
             Notes = new List<Note>();
-            foreach (var note in Notes)
-            {
-                Categories.Add(note.Category);
-            }
+            foreach (var note in Notes) Categories.Add(note.Category);
         }
 
         public void RefreshCategories()
         {
             Categories.Clear();
-            foreach (var note in Notes)
-            {
-                Categories.Add(note.Category);
-            }
+            foreach (var note in Notes) Categories.Add(note.Category);
         }
 
         public List<string> ToList()
@@ -116,7 +108,5 @@ namespace NoteMaster.NoteMaster.Core.Entities
             var obj = Notes.FirstOrDefault(x => x.NoteId == noteId);
             Notes.Remove(obj);
         }
-
-
     }
 }

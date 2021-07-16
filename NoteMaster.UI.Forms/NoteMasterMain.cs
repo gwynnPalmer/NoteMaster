@@ -2,9 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.IO;
-    using System.Text;
     using System.Windows.Forms;
     using Core;
     using Core.Commands;
@@ -116,13 +114,9 @@
         private void ButtonEditNote_Click(object sender, EventArgs e)
         {
             if (listBoxCategories.SelectedItem != null && listBoxTags.SelectedItem != null)
-            {
                 EditModeEnabled = !EditModeEnabled;
-            }
             else
-            {
                 MessageBox.Show(@"No note selected.", @"No Puedo.", MessageBoxButtons.OK);
-            }
         }
 
         private void ButtonDeleteNote_Click(object sender, EventArgs e)
@@ -139,9 +133,19 @@
             ReloadForm();
         }
 
-        private void buttonOpen_Click(object sender, EventArgs e)
+        private void ButtonOpen_Click(object sender, EventArgs e)
         {
             RestartForm();
+        }
+
+        private void Button1upCat_Click(object sender, EventArgs e)
+        {
+            if (listBoxCategories.SelectedItem != null)
+            {
+                var newNote = new NewNote(listBoxCategories.Text);
+                newNote.FormClosed += NewNote_FormClosed;
+                newNote.Show();
+            }
         }
 
         #endregion
@@ -174,13 +178,16 @@
         private void RestartForm()
         {
             NoteService.Binder.Clear();
-            UnloadForm();            
+            UnloadForm();
             NoteService.GetNewFile();
             ReloadForm();
         }
+
         private void PopulateNoteBox()
         {
-            scintilla.Text = listBoxTags.SelectedItem != null ? NoteService.GetNotesToString(SelectedNoteId) : string.Empty;
+            scintilla.Text = listBoxTags.SelectedItem != null
+                ? NoteService.GetNotesToString(SelectedNoteId)
+                : string.Empty;
         }
 
         private void ActivateEditMode()
@@ -190,7 +197,8 @@
             scintilla.Enabled = true;
             buttonDeleteNote.Enabled = false;
             buttonOpen.Enabled = false;
-            this.Text = @"NoteMaster! [EditMode - Hit +1up! to save changes]";
+            button1upCat.Enabled = false;
+            Text = @"NoteMaster! [EditMode - Hit +1up! to save changes]";
         }
 
         private void DisableEditMode()
@@ -200,10 +208,10 @@
             scintilla.Enabled = false;
             buttonDeleteNote.Enabled = true;
             buttonOpen.Enabled = true;
-            this.Text = @"NoteMaster!";
+            button1upCat.Enabled = true;
+            Text = @"NoteMaster!";
         }
 
         #endregion
-
     }
 }

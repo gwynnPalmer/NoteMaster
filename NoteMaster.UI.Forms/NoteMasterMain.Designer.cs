@@ -39,6 +39,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.labelCategories = new System.Windows.Forms.Label();
             this.labelTags = new System.Windows.Forms.Label();
             this.buttonOpen = new System.Windows.Forms.Button();
+            this.button1upCat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxCategories
@@ -140,13 +141,25 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonOpen.TabIndex = 10;
             this.buttonOpen.Text = "Open";
             this.buttonOpen.UseVisualStyleBackColor = true;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            this.buttonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
+            // 
+            // button1upCat
+            // 
+            this.button1upCat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1upCat.Location = new System.Drawing.Point(509, 488);
+            this.button1upCat.Name = "button1upCat";
+            this.button1upCat.Size = new System.Drawing.Size(75, 23);
+            this.button1upCat.TabIndex = 11;
+            this.button1upCat.Text = "+1up! Cat";
+            this.button1upCat.UseVisualStyleBackColor = true;
+            this.button1upCat.Click += new System.EventHandler(this.Button1upCat_Click);
             // 
             // NoteMasterMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 526);
+            this.Controls.Add(this.button1upCat);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.labelTags);
             this.Controls.Add(this.labelCategories);
@@ -174,6 +187,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
         private System.Windows.Forms.Label labelCategories;
         private System.Windows.Forms.Label labelTags;
         private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.Button button1upCat;
     }
 }
 

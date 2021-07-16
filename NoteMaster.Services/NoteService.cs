@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Core.Commands;
     using Core.Entities;
@@ -15,30 +16,35 @@
         /// </summary>
         public static List<Note> Binder = new List<Note>();
 
+        public static List<string> Categories => GetDistinctCategories();
+
         /// <summary>
-        /// Gets the database location.
+        ///     Gets the database location.
         /// </summary>
         /// <value>
-        /// The database location.
+        ///     The database location.
         /// </value>
         public static string TextFileLocation { get; private set; }
 
         /// <summary>
         ///     Sets the database location.
         /// </summary>
-        public static void SetFileLocation()
+        public static async Task SetFileLocation()
         {
-            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\NoteMaster\\NoteMasterDB.txt";
+            var path =
+                $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\NoteMaster\\NoteMasterDB.txt";
             if (!File.Exists(path))
             {
-                File.Create(path);
+                await Task.Run(() => Directory.CreateDirectory(
+                    $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\NoteMaster"));
+                await Task.Run(() => File.Create(path));
             }
 
             TextFileLocation = path;
         }
 
         /// <summary>
-        /// Gets the new database file.
+        ///     Gets the new database file.
         /// </summary>
         public static void GetNewFile()
         {
