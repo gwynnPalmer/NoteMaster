@@ -16,8 +16,15 @@
         /// </summary>
         public NewNote()
         {
+            GetFreshForm();
+        }
+
+        public NewNote(string seedCategory)
+        {
             InitializeComponent();
             scintillaNew.Margins[0].Width = 16;
+            comboBoxCategories.DataSource = NoteService.Categories;
+            comboBoxCategories.Text = seedCategory;
         }
 
         /// <summary>
@@ -27,8 +34,8 @@
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void ButtonSaveNewNote_Click(object sender, EventArgs e)
         {
-            var category = textBoxCategory.Text.Trim();
-            var tag = textBoxTag.Text.Trim();
+            var category = comboBoxCategories.Text.Trim();
+            var tag = comboBoxTags.Text.Trim();
             var noteEntry = scintillaNew.Text.Trim();
 
             if (!string.IsNullOrWhiteSpace(category) &&
@@ -59,6 +66,19 @@
             if (lengthEntered > 0)
                 if (!scintillaNew.AutoCActive)
                     scintillaNew.AutoCShow(lengthEntered, _crudeDictionary.Words);
+        }
+
+        private void Update_Tags(object sender, EventArgs e)
+        {
+            comboBoxTags.DataSource = NoteService.GetDistinctTags(comboBoxCategories.Text);
+        }
+
+        private void GetFreshForm()
+        {
+            InitializeComponent();
+            scintillaNew.Margins[0].Width = 16;
+            comboBoxCategories.DataSource = NoteService.Categories;
+            comboBoxCategories.SelectedItem = null;
         }
     }
 }

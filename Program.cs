@@ -2,10 +2,6 @@ namespace NoteMaster
 {
     using System;
     using System.Windows.Forms;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
-    using Microsoft.Extensions.Options;
     using NoteMaster.Services;
     using NoteMaster.UI.Forms;
 
