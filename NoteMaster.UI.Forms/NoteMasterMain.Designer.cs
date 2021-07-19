@@ -81,7 +81,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // buttonEditNote
             // 
             this.buttonEditNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonEditNote.Location = new System.Drawing.Point(266, 488);
+            this.buttonEditNote.Location = new System.Drawing.Point(263, 488);
             this.buttonEditNote.Name = "buttonEditNote";
             this.buttonEditNote.Size = new System.Drawing.Size(75, 23);
             this.buttonEditNote.TabIndex = 4;
@@ -92,7 +92,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // buttonDeleteNote
             // 
             this.buttonDeleteNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDeleteNote.Location = new System.Drawing.Point(347, 488);
+            this.buttonDeleteNote.Location = new System.Drawing.Point(344, 488);
             this.buttonDeleteNote.Name = "buttonDeleteNote";
             this.buttonDeleteNote.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteNote.TabIndex = 5;
@@ -135,7 +135,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // buttonOpen
             // 
             this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOpen.Location = new System.Drawing.Point(428, 488);
+            this.buttonOpen.Location = new System.Drawing.Point(425, 488);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(75, 23);
             this.buttonOpen.TabIndex = 10;
@@ -157,7 +157,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 526);
+            this.ClientSize = new System.Drawing.Size(801, 517);
             this.Controls.Add(this.button1upCat);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.labelTags);
