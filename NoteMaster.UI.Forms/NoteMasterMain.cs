@@ -68,6 +68,7 @@
             {
                 var newNote = new NewNote();
                 newNote.FormClosed += NewNote_FormClosed;
+                this.Hide();
                 newNote.Show();
             }
             else
@@ -97,6 +98,7 @@
         private void NewNote_FormClosed(object sender, FormClosedEventArgs e)
         {
             ReloadForm();
+            this.Show();
         }
 
         private void ListBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
