@@ -40,6 +40,9 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             // comboBoxTags
             // 
+            this.comboBoxTags.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxTags.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxTags.ForeColor = System.Drawing.SystemColors.Control;
             this.comboBoxTags.FormattingEnabled = true;
             this.comboBoxTags.Location = new System.Drawing.Point(139, 27);
             this.comboBoxTags.Name = "comboBoxTags";
@@ -48,6 +51,9 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             // comboBoxCategories
             // 
+            this.comboBoxCategories.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxCategories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxCategories.ForeColor = System.Drawing.SystemColors.Control;
             this.comboBoxCategories.FormattingEnabled = true;
             this.comboBoxCategories.Location = new System.Drawing.Point(12, 27);
             this.comboBoxCategories.Name = "comboBoxCategories";
@@ -60,6 +66,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.scintillaNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.scintillaNew.AutoCMaxHeight = 9;
+            this.scintillaNew.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.scintillaNew.EndAtLastLine = false;
             this.scintillaNew.Location = new System.Drawing.Point(12, 57);
             this.scintillaNew.Name = "scintillaNew";
@@ -89,18 +96,24 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             this.buttonSaveNewNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSaveNewNote.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonSaveNewNote.FlatAppearance.BorderSize = 0;
+            this.buttonSaveNewNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveNewNote.Location = new System.Drawing.Point(12, 414);
             this.buttonSaveNewNote.Name = "buttonSaveNewNote";
             this.buttonSaveNewNote.Size = new System.Drawing.Size(594, 23);
             this.buttonSaveNewNote.TabIndex = 0;
             this.buttonSaveNewNote.Text = "+1up!";
-            this.buttonSaveNewNote.UseVisualStyleBackColor = true;
+            this.buttonSaveNewNote.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonSaveNewNote.UseVisualStyleBackColor = false;
             this.buttonSaveNewNote.Click += new System.EventHandler(this.ButtonSaveNewNote_Click);
+            this.buttonSaveNewNote.MouseHover += new System.EventHandler(this.Button_Hover);
             // 
             // NewNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(612, 443);
             this.Controls.Add(this.comboBoxTags);
             this.Controls.Add(this.comboBoxCategories);
@@ -108,6 +121,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.Controls.Add(this.scintillaNew);
             this.Controls.Add(this.buttonSaveNewNote);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "NewNote";
