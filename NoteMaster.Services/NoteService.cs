@@ -53,8 +53,11 @@
                 Filter = @"Txt files (*.txt)|*.txt",
                 Title = @"Assign your Database."
             };
-            saveFileDialog1.ShowDialog();
-            TextFileLocation = saveFileDialog1.FileName;
+            var dialog = saveFileDialog1.ShowDialog();
+            if (dialog == DialogResult.OK)
+            {
+                TextFileLocation = saveFileDialog1.FileName;
+            }
         }
 
         /// <summary>
