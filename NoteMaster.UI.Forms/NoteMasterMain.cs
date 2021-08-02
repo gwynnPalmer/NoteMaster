@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
     using Core;
@@ -51,6 +52,11 @@
         }
 
         #region Event-Actions
+
+        private void Button_Hover(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#696969");
+        }
 
         private void Scintilla_CharAdded(object sender, CharAddedEventArgs e)
         {
