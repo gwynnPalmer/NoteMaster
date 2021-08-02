@@ -47,13 +47,13 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.listBoxCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxCategories.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.listBoxCategories.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxCategories.ForeColor = System.Drawing.SystemColors.Control;
             this.listBoxCategories.FormattingEnabled = true;
             this.listBoxCategories.ItemHeight = 15;
             this.listBoxCategories.Location = new System.Drawing.Point(12, 57);
             this.listBoxCategories.Name = "listBoxCategories";
-            this.listBoxCategories.Size = new System.Drawing.Size(118, 452);
+            this.listBoxCategories.Size = new System.Drawing.Size(118, 450);
             this.listBoxCategories.TabIndex = 0;
             this.listBoxCategories.SelectedIndexChanged += new System.EventHandler(this.ListBoxCategories_SelectedIndexChanged);
             // 
@@ -62,13 +62,13 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.listBoxTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxTags.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.listBoxTags.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxTags.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxTags.ForeColor = System.Drawing.SystemColors.Control;
             this.listBoxTags.FormattingEnabled = true;
             this.listBoxTags.ItemHeight = 15;
             this.listBoxTags.Location = new System.Drawing.Point(138, 57);
             this.listBoxTags.Name = "listBoxTags";
-            this.listBoxTags.Size = new System.Drawing.Size(118, 452);
+            this.listBoxTags.Size = new System.Drawing.Size(118, 450);
             this.listBoxTags.TabIndex = 1;
             this.listBoxTags.SelectedIndexChanged += new System.EventHandler(this.ListBoxTags_SelectedIndexChanged);
             // 
