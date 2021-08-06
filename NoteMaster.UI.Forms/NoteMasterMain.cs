@@ -53,11 +53,6 @@
 
         #region Event-Actions
 
-        private void Button_Hover(object sender, EventArgs e)
-        {
-            this.BackColor = ColorTranslator.FromHtml("#696969");
-        }
-
         private void Scintilla_CharAdded(object sender, CharAddedEventArgs e)
         {
             var currentPosition = scintilla.CurrentPosition;
@@ -67,7 +62,7 @@
                 if (!scintilla.AutoCActive)
                     scintilla.AutoCShow(lengthEntered, _crudeDictionary.Words);
         }
-
+        
         private void ButtonCreateNewNote_Click(object sender, EventArgs e)
         {
             if (!EditModeEnabled)

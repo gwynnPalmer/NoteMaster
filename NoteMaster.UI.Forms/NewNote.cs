@@ -68,12 +68,7 @@
                 if (!scintillaNew.AutoCActive)
                     scintillaNew.AutoCShow(lengthEntered, _crudeDictionary.Words);
         }
-
-        private void Button_Hover(object sender, EventArgs e)
-        {
-            this.BackColor = ColorTranslator.FromHtml("#696969");
-        }
-
+        
         private void Update_Tags(object sender, EventArgs e)
         {
             comboBoxTags.DataSource = NoteService.GetDistinctTags(comboBoxCategories.Text);

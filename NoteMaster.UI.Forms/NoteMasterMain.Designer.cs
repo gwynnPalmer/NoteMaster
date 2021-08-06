@@ -74,52 +74,48 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             // buttonCreateNewNote
             // 
-            this.buttonCreateNewNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateNewNote.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonCreateNewNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.buttonCreateNewNote.FlatAppearance.BorderSize = 0;
+            this.buttonCreateNewNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonCreateNewNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateNewNote.Location = new System.Drawing.Point(262, 12);
+            this.buttonCreateNewNote.Location = new System.Drawing.Point(529, 9);
             this.buttonCreateNewNote.Name = "buttonCreateNewNote";
-            this.buttonCreateNewNote.Size = new System.Drawing.Size(527, 23);
+            this.buttonCreateNewNote.Size = new System.Drawing.Size(260, 23);
             this.buttonCreateNewNote.TabIndex = 3;
             this.buttonCreateNewNote.Text = "+1up!";
             this.buttonCreateNewNote.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonCreateNewNote.UseVisualStyleBackColor = false;
             this.buttonCreateNewNote.Click += new System.EventHandler(this.ButtonCreateNewNote_Click);
-            this.buttonCreateNewNote.MouseHover += new System.EventHandler(this.Button_Hover);
             // 
             // buttonEditNote
             // 
-            this.buttonEditNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonEditNote.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonEditNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.buttonEditNote.FlatAppearance.BorderSize = 0;
+            this.buttonEditNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonEditNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditNote.Location = new System.Drawing.Point(263, 488);
+            this.buttonEditNote.Location = new System.Drawing.Point(12, 9);
             this.buttonEditNote.Name = "buttonEditNote";
-            this.buttonEditNote.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditNote.Size = new System.Drawing.Size(50, 23);
             this.buttonEditNote.TabIndex = 4;
             this.buttonEditNote.Text = "Edit";
             this.buttonEditNote.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonEditNote.UseVisualStyleBackColor = false;
             this.buttonEditNote.Click += new System.EventHandler(this.ButtonEditNote_Click);
-            this.buttonEditNote.MouseHover += new System.EventHandler(this.Button_Hover);
             // 
             // buttonDeleteNote
             // 
-            this.buttonDeleteNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDeleteNote.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonDeleteNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.buttonDeleteNote.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonDeleteNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDeleteNote.Location = new System.Drawing.Point(344, 488);
+            this.buttonDeleteNote.Location = new System.Drawing.Point(68, 9);
             this.buttonDeleteNote.Name = "buttonDeleteNote";
-            this.buttonDeleteNote.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteNote.Size = new System.Drawing.Size(50, 23);
             this.buttonDeleteNote.TabIndex = 5;
             this.buttonDeleteNote.Text = "Delete";
             this.buttonDeleteNote.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonDeleteNote.UseVisualStyleBackColor = false;
             this.buttonDeleteNote.Click += new System.EventHandler(this.ButtonDeleteNote_Click);
-            this.buttonDeleteNote.MouseHover += new System.EventHandler(this.Button_Hover);
             // 
             // scintilla
             // 
@@ -132,7 +128,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.scintilla.Location = new System.Drawing.Point(263, 38);
             this.scintilla.MultipleSelection = true;
             this.scintilla.Name = "scintilla";
-            this.scintilla.Size = new System.Drawing.Size(526, 444);
+            this.scintilla.Size = new System.Drawing.Size(526, 467);
             this.scintilla.TabIndex = 6;
             this.scintilla.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.Scintilla_CharAdded);
             // 
@@ -156,40 +152,39 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             // buttonOpen
             // 
-            this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOpen.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.buttonOpen.FlatAppearance.BorderSize = 0;
+            this.buttonOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpen.Location = new System.Drawing.Point(425, 488);
+            this.buttonOpen.Location = new System.Drawing.Point(124, 9);
             this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(75, 23);
+            this.buttonOpen.Size = new System.Drawing.Size(50, 23);
             this.buttonOpen.TabIndex = 10;
             this.buttonOpen.Text = "Open";
             this.buttonOpen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonOpen.UseVisualStyleBackColor = false;
             this.buttonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
-            this.buttonOpen.MouseHover += new System.EventHandler(this.Button_Hover);
             // 
             // button1upCat
             // 
-            this.button1upCat.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1upCat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.button1upCat.FlatAppearance.BorderSize = 0;
+            this.button1upCat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.button1upCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1upCat.Location = new System.Drawing.Point(12, 12);
+            this.button1upCat.Location = new System.Drawing.Point(263, 9);
             this.button1upCat.Name = "button1upCat";
-            this.button1upCat.Size = new System.Drawing.Size(244, 23);
+            this.button1upCat.Size = new System.Drawing.Size(260, 23);
             this.button1upCat.TabIndex = 11;
             this.button1upCat.Text = "+1up! Category";
             this.button1upCat.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1upCat.UseVisualStyleBackColor = false;
             this.button1upCat.Click += new System.EventHandler(this.Button1upCat_Click);
-            this.button1upCat.MouseHover += new System.EventHandler(this.Button_Hover);
             // 
             // NoteMasterMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(801, 517);
             this.Controls.Add(this.button1upCat);
             this.Controls.Add(this.buttonOpen);
@@ -203,7 +198,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.Controls.Add(this.listBoxCategories);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(500, 400);
+            this.MinimumSize = new System.Drawing.Size(817, 400);
             this.Name = "NoteMasterMain";
             this.Text = "NoteMaster!";
             this.ResumeLayout(false);
