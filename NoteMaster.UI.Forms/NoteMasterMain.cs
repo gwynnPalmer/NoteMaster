@@ -31,7 +31,7 @@
         public NoteMasterMain()
         {
             InitializeComponent();
-            scintilla.Margins[0].Width = 16;
+            PrepScintilla();
             LoadForm();
             EditModeEnabled = false;
             FormBorderStyle = FormBorderStyle.None;
@@ -212,6 +212,11 @@
         #endregion
 
         #region Methods
+
+        public void PrepScintilla()
+        {
+            scintilla.Margins[0].Width = 16;
+        }
 
         public void LoadForm()
         {
