@@ -197,7 +197,8 @@
         {
             listBoxCategories.Enabled = false;
             listBoxTags.Enabled = false;
-            scintilla.Enabled = true;
+            //scintilla.Enabled = true;
+            scintilla.ReadOnly = false;
             buttonDeleteNote.Enabled = false;
             buttonOpen.Enabled = false;
             button1upCat.Enabled = false;
@@ -208,7 +209,8 @@
         {
             listBoxCategories.Enabled = true;
             listBoxTags.Enabled = true;
-            scintilla.Enabled = false;
+            //scintilla.Enabled = false;
+            scintilla.ReadOnly = true;
             buttonDeleteNote.Enabled = true;
             buttonOpen.Enabled = true;
             button1upCat.Enabled = true;
