@@ -36,6 +36,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSaveNewNote = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxTags
@@ -44,7 +45,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.comboBoxTags.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxTags.ForeColor = System.Drawing.SystemColors.Control;
             this.comboBoxTags.FormattingEnabled = true;
-            this.comboBoxTags.Location = new System.Drawing.Point(139, 27);
+            this.comboBoxTags.Location = new System.Drawing.Point(238, 6);
             this.comboBoxTags.Name = "comboBoxTags";
             this.comboBoxTags.Size = new System.Drawing.Size(121, 23);
             this.comboBoxTags.TabIndex = 2;
@@ -55,7 +56,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.comboBoxCategories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCategories.ForeColor = System.Drawing.SystemColors.Control;
             this.comboBoxCategories.FormattingEnabled = true;
-            this.comboBoxCategories.Location = new System.Drawing.Point(12, 27);
+            this.comboBoxCategories.Location = new System.Drawing.Point(73, 6);
             this.comboBoxCategories.Name = "comboBoxCategories";
             this.comboBoxCategories.Size = new System.Drawing.Size(121, 23);
             this.comboBoxCategories.TabIndex = 1;
@@ -69,16 +70,16 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.scintillaNew.AutoCMaxHeight = 9;
             this.scintillaNew.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.scintillaNew.EndAtLastLine = false;
-            this.scintillaNew.Location = new System.Drawing.Point(12, 57);
+            this.scintillaNew.Location = new System.Drawing.Point(12, 35);
             this.scintillaNew.Name = "scintillaNew";
-            this.scintillaNew.Size = new System.Drawing.Size(594, 374);
+            this.scintillaNew.Size = new System.Drawing.Size(594, 396);
             this.scintillaNew.TabIndex = 3;
             this.scintillaNew.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.Scintilla_CharAdded);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, 9);
+            this.label2.Location = new System.Drawing.Point(200, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 15);
             this.label2.TabIndex = 5;
@@ -101,14 +102,30 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonSaveNewNote.FlatAppearance.BorderSize = 0;
             this.buttonSaveNewNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonSaveNewNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveNewNote.Location = new System.Drawing.Point(266, 27);
+            this.buttonSaveNewNote.Location = new System.Drawing.Point(365, 6);
             this.buttonSaveNewNote.Name = "buttonSaveNewNote";
-            this.buttonSaveNewNote.Size = new System.Drawing.Size(334, 23);
+            this.buttonSaveNewNote.Size = new System.Drawing.Size(138, 23);
             this.buttonSaveNewNote.TabIndex = 0;
             this.buttonSaveNewNote.Text = "+1up!";
             this.buttonSaveNewNote.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonSaveNewNote.UseVisualStyleBackColor = false;
             this.buttonSaveNewNote.Click += new System.EventHandler(this.ButtonSaveNewNote_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonClose.Location = new System.Drawing.Point(577, 6);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(23, 23);
+            this.buttonClose.TabIndex = 15;
+            this.buttonClose.Text = "×";
+            this.buttonClose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // NewNote
             // 
@@ -116,6 +133,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(612, 443);
+            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.comboBoxTags);
             this.Controls.Add(this.comboBoxCategories);
             this.Controls.Add(this.label2);
@@ -123,6 +141,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.Controls.Add(this.buttonSaveNewNote);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "NewNote";
@@ -139,5 +158,6 @@ namespace NoteMaster.NoteMaster.UI.Forms
         private ScintillaNET.Scintilla scintillaNew;
         private System.Windows.Forms.ComboBox comboBoxCategories;
         private System.Windows.Forms.ComboBox comboBoxTags;
+        private System.Windows.Forms.Button buttonClose;
     }
 }
