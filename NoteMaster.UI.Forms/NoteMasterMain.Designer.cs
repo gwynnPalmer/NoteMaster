@@ -42,6 +42,8 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.button1upCat = new System.Windows.Forms.Button();
             this.buttonMinimise = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxCategories
@@ -53,9 +55,9 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.listBoxCategories.ForeColor = System.Drawing.SystemColors.Control;
             this.listBoxCategories.FormattingEnabled = true;
             this.listBoxCategories.ItemHeight = 15;
-            this.listBoxCategories.Location = new System.Drawing.Point(560, 55);
+            this.listBoxCategories.Location = new System.Drawing.Point(6, 41);
             this.listBoxCategories.Name = "listBoxCategories";
-            this.listBoxCategories.Size = new System.Drawing.Size(118, 450);
+            this.listBoxCategories.Size = new System.Drawing.Size(111, 420);
             this.listBoxCategories.TabIndex = 0;
             this.listBoxCategories.SelectedIndexChanged += new System.EventHandler(this.ListBoxCategories_SelectedIndexChanged);
             // 
@@ -68,9 +70,9 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.listBoxTags.ForeColor = System.Drawing.SystemColors.Control;
             this.listBoxTags.FormattingEnabled = true;
             this.listBoxTags.ItemHeight = 15;
-            this.listBoxTags.Location = new System.Drawing.Point(686, 55);
+            this.listBoxTags.Location = new System.Drawing.Point(128, 41);
             this.listBoxTags.Name = "listBoxTags";
-            this.listBoxTags.Size = new System.Drawing.Size(118, 450);
+            this.listBoxTags.Size = new System.Drawing.Size(111, 420);
             this.listBoxTags.TabIndex = 1;
             this.listBoxTags.SelectedIndexChanged += new System.EventHandler(this.ListBoxTags_SelectedIndexChanged);
             // 
@@ -80,7 +82,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonCreateNewNote.FlatAppearance.BorderSize = 0;
             this.buttonCreateNewNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonCreateNewNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateNewNote.Location = new System.Drawing.Point(469, 9);
+            this.buttonCreateNewNote.Location = new System.Drawing.Point(354, 9);
             this.buttonCreateNewNote.Name = "buttonCreateNewNote";
             this.buttonCreateNewNote.Size = new System.Drawing.Size(200, 23);
             this.buttonCreateNewNote.TabIndex = 3;
@@ -96,7 +98,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonEditNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonEditNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditNote.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonEditNote.Location = new System.Drawing.Point(262, 9);
+            this.buttonEditNote.Location = new System.Drawing.Point(138, 9);
             this.buttonEditNote.Name = "buttonEditNote";
             this.buttonEditNote.Size = new System.Drawing.Size(200, 23);
             this.buttonEditNote.TabIndex = 4;
@@ -111,7 +113,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonDeleteNote.FlatAppearance.BorderSize = 0;
             this.buttonDeleteNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonDeleteNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDeleteNote.Location = new System.Drawing.Point(136, 9);
+            this.buttonDeleteNote.Location = new System.Drawing.Point(12, 9);
             this.buttonDeleteNote.Name = "buttonDeleteNote";
             this.buttonDeleteNote.Size = new System.Drawing.Size(57, 23);
             this.buttonDeleteNote.TabIndex = 5;
@@ -138,7 +140,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // labelCategories
             // 
             this.labelCategories.AutoSize = true;
-            this.labelCategories.Location = new System.Drawing.Point(560, 36);
+            this.labelCategories.Location = new System.Drawing.Point(6, 19);
             this.labelCategories.Name = "labelCategories";
             this.labelCategories.Size = new System.Drawing.Size(66, 15);
             this.labelCategories.TabIndex = 8;
@@ -147,7 +149,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // labelTags
             // 
             this.labelTags.AutoSize = true;
-            this.labelTags.Location = new System.Drawing.Point(686, 36);
+            this.labelTags.Location = new System.Drawing.Point(128, 19);
             this.labelTags.Name = "labelTags";
             this.labelTags.Size = new System.Drawing.Size(33, 15);
             this.labelTags.TabIndex = 9;
@@ -159,7 +161,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonOpen.FlatAppearance.BorderSize = 0;
             this.buttonOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.buttonOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpen.Location = new System.Drawing.Point(199, 9);
+            this.buttonOpen.Location = new System.Drawing.Point(75, 9);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(57, 23);
             this.buttonOpen.TabIndex = 10;
@@ -174,7 +176,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.button1upCat.FlatAppearance.BorderSize = 0;
             this.button1upCat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.button1upCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1upCat.Location = new System.Drawing.Point(12, 9);
+            this.button1upCat.Location = new System.Drawing.Point(560, 9);
             this.button1upCat.Name = "button1upCat";
             this.button1upCat.Size = new System.Drawing.Size(118, 23);
             this.button1upCat.TabIndex = 11;
@@ -215,32 +217,44 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelTags);
+            this.groupBox1.Controls.Add(this.listBoxCategories);
+            this.groupBox1.Controls.Add(this.listBoxTags);
+            this.groupBox1.Controls.Add(this.labelCategories);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(560, 38);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(245, 467);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Notes";
+            // 
             // NoteMasterMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(817, 517);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonMinimise);
             this.Controls.Add(this.button1upCat);
             this.Controls.Add(this.buttonOpen);
-            this.Controls.Add(this.labelTags);
-            this.Controls.Add(this.labelCategories);
             this.Controls.Add(this.scintilla);
             this.Controls.Add(this.buttonDeleteNote);
             this.Controls.Add(this.buttonEditNote);
             this.Controls.Add(this.buttonCreateNewNote);
-            this.Controls.Add(this.listBoxTags);
-            this.Controls.Add(this.listBoxCategories);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(817, 400);
             this.Name = "NoteMasterMain";
             this.Text = "NoteMaster!";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -258,6 +272,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
         private System.Windows.Forms.Button buttonMinimise;
         private System.Windows.Forms.Button buttonMaximise;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
