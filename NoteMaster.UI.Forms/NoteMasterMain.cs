@@ -12,10 +12,21 @@
 
     public partial class NoteMasterMain : Form
     {
+        private const int cGrip = 16; // Grip size
+        private const int cCaption = 32; // Caption bar height;
         private readonly CrudeDictionary _crudeDictionary = new CrudeDictionary();
         private List<string> _categories;
         private bool _editModeEnabled;
 
+        //public NoteMasterMain()
+        //{
+        //    InitializeComponent();
+        //    scintilla.Margins[0].Width = 16;
+        //    LoadForm();
+        //    EditModeEnabled = false;
+        //    ControlBox = false;
+        //    Text = string.Empty;
+        //}
 
         public NoteMasterMain()
         {
@@ -23,16 +34,19 @@
             scintilla.Margins[0].Width = 16;
             LoadForm();
             EditModeEnabled = false;
+            FormBorderStyle = FormBorderStyle.None;
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
         public string SelectedNoteId => $"{listBoxCategories.SelectedItem}{listBoxTags.SelectedItem}";
 
-        /// <summary>
-        ///     Gets or sets a value indicating whether [edit mode enabled].
-        /// </summary>
-        /// <value>
-        ///     <c>true</c> if [edit mode enabled]; otherwise, <c>false</c>.
-        /// </value>
+        public sealed override string Text
+        {
+            get => base.Text;
+            set => base.Text = value;
+        }
+
         public bool EditModeEnabled
         {
             get => _editModeEnabled;
@@ -51,6 +65,35 @@
             }
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var rectangle = new Rectangle(ClientSize.Width - cGrip, ClientSize.Height - cGrip, cGrip, cGrip);
+            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rectangle);
+        }
+
+        protected override void WndProc(ref Message message)
+        {
+            if (message.Msg == 0x84)
+            {
+                var point = new Point(message.LParam.ToInt32());
+                point = PointToClient(point);
+                if (point.Y < cCaption)
+                {
+                    message.Result = (IntPtr) 2;
+                    return;
+                }
+
+                if (point.X >= ClientSize.Width - cGrip && point.Y >= ClientSize.Height - cGrip)
+                {
+                    message.Result = (IntPtr) 17;
+                    return;
+                }
+            }
+
+            base.WndProc(ref message);
+        }
+
+
         #region Event-Actions
 
         private void Scintilla_CharAdded(object sender, CharAddedEventArgs e)
@@ -62,14 +105,14 @@
                 if (!scintilla.AutoCActive)
                     scintilla.AutoCShow(lengthEntered, _crudeDictionary.Words);
         }
-        
+
         private void ButtonCreateNewNote_Click(object sender, EventArgs e)
         {
             if (!EditModeEnabled)
             {
                 var newNote = new NewNote();
                 newNote.FormClosed += NewNote_FormClosed;
-                this.Hide();
+                Hide();
                 newNote.Show();
             }
             else
@@ -99,7 +142,7 @@
         private void NewNote_FormClosed(object sender, FormClosedEventArgs e)
         {
             ReloadForm();
-            this.Show();
+            Show();
         }
 
         private void ListBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,6 +192,21 @@
                 newNote.FormClosed += NewNote_FormClosed;
                 newNote.Show();
             }
+        }
+
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void ButtonMaximize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
+        }
+
+        private void ButtonMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
 
         #endregion
@@ -204,7 +262,7 @@
             buttonDeleteNote.Enabled = false;
             buttonOpen.Enabled = false;
             button1upCat.Enabled = false;
-            Text = @"NoteMaster! [EditMode - Hit +1up! to save changes]";
+            buttonEditNote.Text = @"[EditMode - Enabled]";
         }
 
         private void DisableEditMode()
@@ -216,7 +274,7 @@
             buttonDeleteNote.Enabled = true;
             buttonOpen.Enabled = true;
             button1upCat.Enabled = true;
-            Text = @"NoteMaster!";
+            buttonEditNote.Text = @"[EditMode - Disabled]";
         }
 
         #endregion
