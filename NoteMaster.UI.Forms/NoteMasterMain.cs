@@ -262,7 +262,7 @@
             buttonDeleteNote.Enabled = false;
             buttonOpen.Enabled = false;
             button1upCat.Enabled = false;
-            Text = @"NoteMaster! [EditMode - Hit +1up! to save changes]";
+            buttonEditNote.Text = @"[EditMode - Enabled]";
         }
 
         private void DisableEditMode()
@@ -274,7 +274,7 @@
             buttonDeleteNote.Enabled = true;
             buttonOpen.Enabled = true;
             button1upCat.Enabled = true;
-            Text = @"NoteMaster!";
+            buttonEditNote.Text = @"[EditMode - Disabled]";
         }
 
         #endregion
