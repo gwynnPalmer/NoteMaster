@@ -188,9 +188,11 @@
 
         private void PopulateNoteBox()
         {
+            scintilla.ReadOnly = false;
             scintilla.Text = listBoxTags.SelectedItem != null
                 ? NoteService.GetNotesToString(SelectedNoteId)
                 : string.Empty;
+            scintilla.ReadOnly = true;
         }
 
         private void ActivateEditMode()
