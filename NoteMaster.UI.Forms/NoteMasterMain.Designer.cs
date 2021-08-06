@@ -48,12 +48,12 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             this.listBoxCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.listBoxCategories.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.listBoxCategories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.listBoxCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxCategories.ForeColor = System.Drawing.SystemColors.Control;
             this.listBoxCategories.FormattingEnabled = true;
             this.listBoxCategories.ItemHeight = 15;
-            this.listBoxCategories.Location = new System.Drawing.Point(12, 57);
+            this.listBoxCategories.Location = new System.Drawing.Point(560, 55);
             this.listBoxCategories.Name = "listBoxCategories";
             this.listBoxCategories.Size = new System.Drawing.Size(118, 450);
             this.listBoxCategories.TabIndex = 0;
@@ -63,12 +63,12 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             this.listBoxTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.listBoxTags.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.listBoxTags.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.listBoxTags.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxTags.ForeColor = System.Drawing.SystemColors.Control;
             this.listBoxTags.FormattingEnabled = true;
             this.listBoxTags.ItemHeight = 15;
-            this.listBoxTags.Location = new System.Drawing.Point(138, 57);
+            this.listBoxTags.Location = new System.Drawing.Point(686, 55);
             this.listBoxTags.Name = "listBoxTags";
             this.listBoxTags.Size = new System.Drawing.Size(118, 450);
             this.listBoxTags.TabIndex = 1;
@@ -128,7 +128,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             this.scintilla.AutoCMaxHeight = 9;
             this.scintilla.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.scintilla.EndAtLastLine = false;
-            this.scintilla.Location = new System.Drawing.Point(263, 38);
+            this.scintilla.Location = new System.Drawing.Point(12, 38);
             this.scintilla.MultipleSelection = true;
             this.scintilla.Name = "scintilla";
             this.scintilla.Size = new System.Drawing.Size(542, 467);
@@ -138,7 +138,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // labelCategories
             // 
             this.labelCategories.AutoSize = true;
-            this.labelCategories.Location = new System.Drawing.Point(12, 38);
+            this.labelCategories.Location = new System.Drawing.Point(560, 36);
             this.labelCategories.Name = "labelCategories";
             this.labelCategories.Size = new System.Drawing.Size(66, 15);
             this.labelCategories.TabIndex = 8;
@@ -147,7 +147,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // labelTags
             // 
             this.labelTags.AutoSize = true;
-            this.labelTags.Location = new System.Drawing.Point(138, 38);
+            this.labelTags.Location = new System.Drawing.Point(686, 36);
             this.labelTags.Name = "labelTags";
             this.labelTags.Size = new System.Drawing.Size(33, 15);
             this.labelTags.TabIndex = 9;
