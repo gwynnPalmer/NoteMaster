@@ -49,7 +49,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // listBoxCategories
             // 
             this.listBoxCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxCategories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.listBoxCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxCategories.ForeColor = System.Drawing.SystemColors.Control;
@@ -64,7 +64,7 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // listBoxTags
             // 
             this.listBoxTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxTags.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.listBoxTags.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxTags.ForeColor = System.Drawing.SystemColors.Control;
@@ -139,6 +139,8 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             // labelCategories
             // 
+            this.labelCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCategories.AutoSize = true;
             this.labelCategories.Location = new System.Drawing.Point(6, 19);
             this.labelCategories.Name = "labelCategories";
@@ -148,6 +150,8 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             // labelTags
             // 
+            this.labelTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTags.AutoSize = true;
             this.labelTags.Location = new System.Drawing.Point(128, 19);
             this.labelTags.Name = "labelTags";
@@ -219,6 +223,8 @@ namespace NoteMaster.NoteMaster.UI.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.labelTags);
             this.groupBox1.Controls.Add(this.listBoxCategories);
             this.groupBox1.Controls.Add(this.listBoxTags);
